@@ -44,4 +44,4 @@ print(
     "Duplicate location points:",
     tracks["duplicate_flag"].sum()
 )
-print(tracks["timestamp"].head())
+
