@@ -1,6 +1,9 @@
 from pathlib import Path
 import pandas as pd
 
+import geopandas as gpd
+from shapely.geometry import Point
+
 # Project folder
 project_path = Path(__file__).resolve().parent.parent
 
@@ -24,5 +27,29 @@ tracks = pd.concat(gps_data, ignore_index=True)
 
 print(f"Total GPS records: {len(tracks)}")
 
-print(tracks.head())
-print(tracks.columns)
+# Create spatial points from longitude and latitude
+
+geometry = [
+    Point(xy) for xy in zip(tracks["longitude"], tracks["latitude"])
+]
+
+tracks_gdf = gpd.GeoDataFrame(
+    tracks,
+    geometry=geometry,
+    crs="EPSG:4326"
+)
+
+print(tracks_gdf.head())
+print(tracks_gdf.crs)
+
+# Save GPS tracks as GeoPackage
+
+output_path = Path("database/campaign_tracks.gpkg")
+
+tracks_gdf.to_file(
+    output_path,
+    layer="gps_tracks",
+    driver="GPKG"
+)
+
+print("Spatial database created successfully")
