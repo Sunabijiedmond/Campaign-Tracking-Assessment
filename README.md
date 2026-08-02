@@ -136,6 +136,28 @@ python scripts/04_settlement_matching.py
 python scripts/05_coverage_analysis.py
 python scripts/06_mapping.py
 
+# AI Use Disclosure
+
+## AI Tool Used
+
+- OpenAI ChatGPT
+
+## How AI Was Used
+
+AI was used as an assistant throughout this assessment. Specifically, it was used for:
+
+- Assisting with debugging runtime errors and interpreting error messages.
+- Reviewing and improving the project documentation (README).
+- ## My Contribution
+
+I completed the implementation by:
+
+- validating each script.
+- Debugging and resolving issues encountered during execution.
+- Verifying outputs, maps, and coverage statistics.
+- - reviewing all code before committing it.
+
+
 Author
 
 Edmond Sunabiji Waziri
